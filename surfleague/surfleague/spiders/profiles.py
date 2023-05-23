@@ -30,6 +30,13 @@ class ProfilesSpider(scrapy.Spider):
         surfer_name = response.css('.avatar-text-primary > h1::text').extract_first().strip() #css to name
         surfer_country = response.css('.country-name::text').extract_first().strip()
         followers = response.css('.count::text').extract_first().strip()
-        surfer_data = response.css('.value ::text').extract() # contains, height, wwight, avg heat score, first season, age, stance, hometwon, birth date
-        profile_data = {"Name":surfer_name, "Nation":surfer_country, "Followers":followers, "Data":surfer_data}
+        surfer_stance = surfer_stance = response.css('.new-athlete-bio-stats > div:nth-of-type(2)::text').extract()
+        surfer_first_season = response.css('.new-athlete-bio-stats > ul > li:nth-of-type(2) > div:nth-of-type(2)::text').extract()
+        surfer_age = response.css('.new-athlete-bio-stats > ul > li:nth-of-type(3) > .value > span:nth-of-type(1)::text').extract()
+        surfer_bday = response.css('.new-athlete-bio-stats > ul > li:nth-of-type(3) > .value > span:nth-of-type(2)::text').extract()
+        surfer_height = response.css('.new-athlete-bio-stats > ul > li:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(2)::text').extract()
+        surfer_weight = response.css('.new-athlete-bio-stats > ul > li:nth-of-type(5) > div:nth-of-type(2) > span:nth-of-type(2)::text').extract()
+        surfer_hometown = response.css('.new-athlete-bio-stats > ul > li:nth-of-type(5) > div:nth-of-type(2) > span:nth-of-type(2)::text').extract()
+        profile_data = {"Name":surfer_name, "Nation":surfer_country, "Followers":followers, "Age":surfer_age, "Birthdate":surfer_bday,"Height":surfer_height,
+                        "Weight":surfer_weight,"Hometown":surfer_hometown, "First Season":surfer_first_season}
         yield profile_data
