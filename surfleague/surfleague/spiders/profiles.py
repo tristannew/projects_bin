@@ -3,7 +3,9 @@ import scrapy
 
 class ProfilesSpider(scrapy.Spider):
     name = "profiles"
-    start_urls = ['https://www.worldsurfleague.com/athletes/tour/mct?year=2010','https://www.worldsurfleague.com/athletes/tour/mct?year=2011','https://www.worldsurfleague.com/athletes/tour/mct?year=2012',
+    start_urls = ['https://www.worldsurfleague.com/athletes/tour/mct?year=2010',
+                'https://www.worldsurfleague.com/athletes/tour/mct?year=2011',
+                'https://www.worldsurfleague.com/athletes/tour/mct?year=2012',
                 'https://www.worldsurfleague.com/athletes/tour/mct?year=2013',
                 'https://www.worldsurfleague.com/athletes/tour/mct?year=2014',
                 'https://www.worldsurfleague.com/athletes/tour/mct?year=2015',
