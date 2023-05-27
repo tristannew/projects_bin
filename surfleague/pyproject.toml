@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "surfleague"
 version = "0.1.0"
-description = "A package used in a project that involved scraping data from the WSL website"
+description = ""
 authors = ["Tristan New <tristannew@ymail.com>"]
 readme = "README.md"
 
